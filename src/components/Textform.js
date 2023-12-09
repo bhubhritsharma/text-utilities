@@ -38,15 +38,13 @@ export default function Textform(props) {
     return (
         <>
             <form>
-                <h4 style={props.myStyle}>{props.heading}</h4>    
-                <div className="mb-3">
-                    <textarea type="email" value={text} onChange={handleOnChange} className="form-control" id="myBox" rows="10" style={props.myStyle} />
-                </div>
-                <button className='btn mx-1' onClick={uppercase} style={props.myStyle}>Convert to Uppercase</button>
-                <button className='btn mx-1' onClick={lowercase} style={props.myStyle}>Convert to Lowercase</button>
-                <button className='btn mx-1' onClick={capitalize} style={props.myStyle}>Capitalise</button>
-                <button className='btn mx-1' onClick={copyOnClick} style={props.myStyle}>Copy</button>
-                <button className='btn mx-1' onClick={clearOnClick} style={props.myStyle}>Clear</button>
+                <h4 style={props.myStyle}>{props.heading}</h4>
+                <textarea type="email" value={text} onChange={handleOnChange} className="form-control" id="myBox" rows="10" style={props.myStyle} />
+                <button className='btn mx-1 mt-3' onClick={uppercase} style={props.myStyle}>Uppercase</button>
+                <button className='btn mx-1 mt-3' onClick={lowercase} style={props.myStyle}>Lowercase</button>
+                <button className='btn mx-1 mt-3' onClick={capitalize} style={props.myStyle}>Capitalise</button>
+                <button className='btn mx-1 mt-3' onClick={copyOnClick} style={props.myStyle}>Copy</button>
+                <button className='btn mx-1 mt-3' onClick={clearOnClick} style={props.myStyle}>Clear</button>
             </form>
             <h4 className='mt-5' style={props.myStyle}>Text Summary</h4>
             <p style={props.myStyle}>The above text contains <b>{text.split(" ").length - 1}</b> words and <b>{text.length}</b> characters.</p>

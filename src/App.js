@@ -2,7 +2,10 @@ import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
-import React, { useState } from 'react'
+import About from "./components/About";
+import Footer from "./components/Footer";
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -32,11 +35,11 @@ function App() {
       showAlert('Light mode has been enabled', 'success');
       setMode('Dark');
       document.body.style.backgroundColor = "#fff";
-      } else {
+    } else {
       setMyStyle({
-          color: '#fff',
-          backgroundColor: '#212529',
-          borderColor: '#fff'
+        color: '#fff',
+        backgroundColor: '#212529',
+        borderColor: '#fff'
       });
       showAlert('Dark mode has been enabled', 'success');
       setMode('Light');
@@ -45,14 +48,20 @@ function App() {
   }
 
   return (
-    <>
-      <Navbar title="Text Analyser" myStyle={myStyle} toggleStyle={toggleStyle} mode={mode} />
-      <Alert alert={alert}/>
-      {/* <Navbar/> */}
-      <div className="container my-5" style={myStyle}>
-        <Textform heading="Enter the text to analyse" myStyle={myStyle} />
-      </div>
-    </>
+      <>
+        <Navbar title="Text Utilities" myStyle={myStyle} toggleStyle={toggleStyle} mode={mode} />
+        <Alert alert={alert}/>
+        {/* <Navbar/> */}
+        <BrowserRouter>
+          <div className="container my-5" style={myStyle}>
+            <Routes>
+              <Route exact path="/about" element={<About/>} />
+              <Route exact path="/" element={<Textform heading="Enter the text to analyse" myStyle={myStyle} />} />
+            </Routes>
+          </div>
+          <Footer title="Text Utilities" myStyle={myStyle} />
+        </BrowserRouter>
+      </>
   );
 }
 

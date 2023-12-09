@@ -5,7 +5,7 @@ export default function Navbar(props) {
         <nav className="navbar navbar-expand-lg" style={props.myStyle}>
             <div className="container-fluid position-relative">
                 <a className="navbar-brand m-auto" href="/" style={props.myStyle}>{props.title}</a>
-                <button className='btn theme-toggle' style={props.myStyle} onClick={props.toggleStyle}>Enable {props.mode} mode</button>
+                <button className='btn theme-toggle' style={props.myStyle} onClick={props.toggleStyle}>{props.mode} mode</button>
             </div>
         </nav>
     )
