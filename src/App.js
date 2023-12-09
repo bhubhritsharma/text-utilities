@@ -2,10 +2,10 @@ import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
-import About from "./components/About";
+// import About from "./components/About";
 import Footer from "./components/Footer";
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -52,15 +52,16 @@ function App() {
         <Navbar title="Text Utilities" myStyle={myStyle} toggleStyle={toggleStyle} mode={mode} />
         <Alert alert={alert}/>
         {/* <Navbar/> */}
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
           <div className="container my-5" style={myStyle}>
-            <Routes>
+            {/* <Routes>
               <Route exact path="/" element={<Textform heading="Enter the text to analyse" myStyle={myStyle} />} />
               <Route exact path="/about" element={<About/>} />
-            </Routes>
+            </Routes> */}
+            <Textform heading="Enter the text to analyse" myStyle={myStyle} />
           </div>
           <Footer title="Text Utilities" myStyle={myStyle} />
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
       </>
   );
 }
