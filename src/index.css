@@ -18,3 +18,17 @@ nav {
   border-radius: 5px;
   padding: .375rem .75rem;
 }
+
+.alert {
+  position: absolute;
+  right: 0;
+  top: 75px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.alert .btn-close {
+  padding: 17px;
+  font-size: 10px;
+}
