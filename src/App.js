@@ -55,8 +55,8 @@ function App() {
         <BrowserRouter>
           <div className="container my-5" style={myStyle}>
             <Routes>
-              <Route exact path="/about" element={<About/>} />
               <Route exact path="/" element={<Textform heading="Enter the text to analyse" myStyle={myStyle} />} />
+              <Route exact path="/about" element={<About/>} />
             </Routes>
           </div>
           <Footer title="Text Utilities" myStyle={myStyle} />
