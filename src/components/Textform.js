@@ -7,28 +7,33 @@ export default function Textform(props) {
         e.preventDefault()
         var newtext = text.toUpperCase();
         setText(newtext);
+        props.showAlert('Converted to UpperCase!', 'success');
     }
 
     const lowercase = (e) => {
         e.preventDefault()
         var newtext = text.toLowerCase();
         setText(newtext);
+        props.showAlert('Converted to LowerCase!', 'success');
     }
 
     const capitalize = (e) => {
         e.preventDefault()
         var newtext = text[0].toUpperCase() + text.slice(1).toLowerCase();
         setText(newtext);
+        props.showAlert('Capitalized!', 'success');
     }
 
     const copyOnClick = (e) => {
         e.preventDefault()
         navigator.clipboard.writeText(text);
+        props.showAlert('Copied!', 'success');
     }
     
     const clearOnClick = (e) => {
         e.preventDefault()
         setText("");
+        props.showAlert('Textbox is empty!', 'success');
     }
 
     const handleOnChange = (e) => {
@@ -47,9 +52,9 @@ export default function Textform(props) {
                 <button className='btn mx-1 mt-3' onClick={clearOnClick} style={props.myStyle}>Clear</button>
             </form>
             <h4 className='mt-5' style={props.myStyle}>Text Summary</h4>
-            <p style={props.myStyle}>The above text contains <b>{text.split(" ").length - 1}</b> words and <b>{text.length}</b> characters.</p>
+            <p style={props.myStyle}>The above text contains <b>{text.split(" ").filter((element)=>{return element.length!==0}).length}</b> words and <b>{text.length}</b> characters.</p>
             <div className='view-text' style={props.myStyle}>
-                <p style={props.myStyle}>{text.length>0 ? text : 'Enter something in the textbox to preview it here...'}</p>
+                <p style={props.myStyle}>{text.length>0 ? text : 'Enter something in the textbox above to preview it here...'}</p>
             </div>
         </>
     )

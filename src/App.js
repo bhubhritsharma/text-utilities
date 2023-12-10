@@ -15,6 +15,9 @@ function App() {
       msg: message,
       type: type
     })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
 
   const [myStyle, setMyStyle] = useState({
@@ -32,7 +35,7 @@ function App() {
           backgroundColor: '#fff',
           borderColor: '#212529'
       });
-      showAlert('Light mode has been enabled', 'success');
+      showAlert('Light mode has been enabled.', 'success');
       setMode('Dark');
       document.body.style.backgroundColor = "#fff";
     } else {
@@ -41,7 +44,7 @@ function App() {
         backgroundColor: '#212529',
         borderColor: '#fff'
       });
-      showAlert('Dark mode has been enabled', 'success');
+      showAlert('Dark mode has been enabled.', 'success');
       setMode('Light');
       document.body.style.backgroundColor = "#212529";
       }
@@ -58,7 +61,7 @@ function App() {
               <Route exact path="/" element={<Textform heading="Enter the text to analyse" myStyle={myStyle} />} />
               <Route exact path="/about" element={<About/>} />
             </Routes> */}
-            <Textform heading="Enter the text to analyse" myStyle={myStyle} />
+            <Textform heading="Enter the text to analyse" myStyle={myStyle} showAlert={showAlert} />
           </div>
           <Footer title="Text Utilities" myStyle={myStyle} />
         {/* </BrowserRouter> */}
