@@ -21,38 +21,69 @@ function App() {
   }
 
   const [myStyle, setMyStyle] = useState({
-      color: '#fff',
-      backgroundColor: '#212529',
-      borderColor: '#fff'
+      color: '#212529',
+      backgroundColor: '#fff',
+      borderColor: '#212529'
   })
+  
+  const removeBodyClasses = () => {
+    document.body.classList.remove("theme-maroon", "theme-orange", "theme-yellow", "theme-blue", "theme-black");
+  }
 
-  const [mode, setMode] = useState('Light');
+  // const [mode, setMode] = useState('Light');
 
-  const toggleStyle = () => {
-      if(myStyle.color === '#fff'){
+  const toggleStyle = (cls) => {
+      removeBodyClasses()
+      document.body.classList.add('theme-'+cls);
+      if(document.body.classList.contains('theme-maroon')){
       setMyStyle({
-          color: '#212529',
-          backgroundColor: '#fff',
-          borderColor: '#212529'
+          color: '#fff',
+          backgroundColor: '#851e3e',
+          borderColor: '#fff'
       });
-      showAlert('Light mode has been enabled.', 'success');
-      setMode('Dark');
+      showAlert('Maroon theme has been enabled.', 'success');
       document.body.style.backgroundColor = "#fff";
-    } else {
+    } else if(document.body.classList.contains('theme-orange')) {
+      setMyStyle({
+        color: '#212529',
+        backgroundColor: '#f37736',
+        borderColor: '#212529'
+      });
+      showAlert('Orange theme has been enabled.', 'success');
+    } else if(document.body.classList.contains('theme-yellow')) {
+      setMyStyle({
+        color: '#212529',
+        backgroundColor: '#fdf498',
+        borderColor: '#212529'
+      });
+      showAlert('Yellow theme has been enabled.', 'success');
+    } else if(document.body.classList.contains('theme-blue')) {
+      setMyStyle({
+        color: '#fff',
+        backgroundColor: '#0392cf',
+        borderColor: '#fff'
+      });
+      showAlert('Blue theme has been enabled.', 'success');
+    } else if(document.body.classList.contains('theme-black')) {
       setMyStyle({
         color: '#fff',
         backgroundColor: '#212529',
         borderColor: '#fff'
       });
-      showAlert('Dark mode has been enabled.', 'success');
-      setMode('Light');
-      document.body.style.backgroundColor = "#212529";
-      }
+      showAlert('Black theme has been enabled.', 'success');
+    } else {
+      setMyStyle({
+        color: '#212529',
+        backgroundColor: '#fff',
+        borderColor: '#212529'
+      });
+      showAlert('Default theme has been enabled.', 'success');
+    }
   }
 
   return (
       <>
-        <Navbar title="Text Utilities" myStyle={myStyle} toggleStyle={toggleStyle} mode={mode} />
+        <Navbar title="Text Utilities" myStyle={myStyle} toggleStyle={toggleStyle} />
         <Alert alert={alert}/>
         {/* <Navbar/> */}
         {/* <BrowserRouter> */}

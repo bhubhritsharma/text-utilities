@@ -1,15 +1,40 @@
-body {
+/* body {
   background-color: #212529;
-}
+} */
 
 nav {
   border-bottom: 1px solid;
 }
 
-.theme-toggle {
+.themes-container {
   position: absolute;
   right: 5px;
-  border: 1px solid #fff;
+}
+
+.theme-toggle {
+  border: 1px solid #565656;
+  width: 20px;
+  height: 20px;
+}
+
+.theme-maroon {
+  background-color: #851e3e !important;
+}
+
+.theme-orange {
+  background-color: #f37736 !important;
+}
+
+.theme-yellow {
+  background-color: #fdf498 !important;
+}
+
+.theme-blue {
+  background-color: #0392cf !important;
+}
+
+.theme-black {
+  background-color: #212529 !important;
 }
 
 .view-text {
